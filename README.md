@@ -40,3 +40,58 @@
 ---
 
 ## ⚙️ 项目结构
+
+src/
+ ├─ components/      # 组件（颜色卡片、滑条、上传器）
+ ├─ core/            # 核心算法模块（HCT、Contrast）
+ ├─ pages/           # 页面逻辑
+ └─ main.tsx         # 入口
+
+---
+
+## 🚀 快速开始
+
+```bash
+# 克隆项目
+git clone https://github.com/yourname/hueforge.git
+cd hueforge
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+```
+
+## 🤝 引用与致谢 (Credits & Acknowledgements)
+
+本项目在开发过程中参考并使用了以下优秀的开源项目和理论成果，特此致谢：
+
+### 🎨 [material-color-utilities](https://github.com/material-foundation/material-color-utilities)
+由 Google Material Design 团队开发，是 Material You (Material 3) 动态色彩系统的核心实现库。
+本项目基于其提供的 **HCT (Hue-Chroma-Tone)** 模型与 **Dynamic Color** 算法，
+实现了从主色生成整套主题色板（Light/Dark 模式）的功能。
+
+> License: Apache License 2.0  
+> Copyright © Google LLC
+
+---
+
+### 🌈 [Colorful](https://github.com/V7CN/Colorful)
+由 [V7CN](https://github.com/V7CN) 开发的现代化色彩处理库，
+提供了多种色彩空间转换与 ΔE 色差计算功能。
+本项目参考其设计思路，并在此基础上实现了 **WCAG 2.1 可访问性检测 (Contrast Ratio)** 模块，
+用于自动检测前景与背景色之间的对比度，提升配色可用性。
+
+> License: MIT License  
+> Copyright © V7CN
+
+---
+
+### 📘 参考资料 (References)
+- [Material Design Color System – Dynamic Color](https://m3.material.io/styles/color/dynamic-color/overview)
+- [WCAG 2.1 Contrast Ratio Guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+
+---
+
+感谢以上项目与文档的开源贡献，使本项目得以实现更丰富的色彩科学探索。
