@@ -41,74 +41,59 @@
 
 ## ⚙️ 项目结构
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+src/
+ ├─ components/      # 组件（颜色卡片、滑条、上传器）
+ ├─ core/            # 核心算法模块（HCT、Contrast）
+ ├─ pages/           # 页面逻辑
+ └─ main.tsx         # 入口
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 快速开始
 
-## React Compiler
+```bash
+# 克隆项目
+git clone https://github.com/yourname/hueforge.git
+cd hueforge
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 安装依赖
+npm install
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 启动开发服务器
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+打开浏览器访问 👉 http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🤝 引用与致谢 (Credits & Acknowledgements)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+本项目在开发过程中参考并使用了以下优秀的开源项目和理论成果，特此致谢：
+
+### 🎨 [material-color-utilities](https://github.com/material-foundation/material-color-utilities)
+由 Google Material Design 团队开发，是 Material You (Material 3) 动态色彩系统的核心实现库。
+本项目基于其提供的 **HCT (Hue-Chroma-Tone)** 模型与 **Dynamic Color** 算法，
+实现了从主色生成整套主题色板（Light/Dark 模式）的功能。
+
+> License: Apache License 2.0  
+> Copyright © Google LLC
+
+---
+
+### 🌈 [Colorful](https://github.com/V7CN/Colorful)
+由 [V7CN](https://github.com/V7CN) 开发的现代化色彩处理库，
+提供了多种色彩空间转换与 ΔE 色差计算功能。
+本项目参考其设计思路，并在此基础上实现了 **WCAG 2.1 可访问性检测 (Contrast Ratio)** 模块，
+用于自动检测前景与背景色之间的对比度，提升配色可用性。
+
+> License: MIT License  
+> Copyright © V7CN
+
+---
+
+### 📘 参考资料 (References)
+- [Material Design Color System – Dynamic Color](https://m3.material.io/styles/color/dynamic-color/overview)
+- [WCAG 2.1 Contrast Ratio Guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+
+---
+
+感谢以上项目与文档的开源贡献，使本项目得以实现更丰富的色彩科学探索。
