@@ -219,30 +219,26 @@ export default function Intro({ onFinish }: { onFinish: () => void }) {
       }, 40); // 频率更高，中心堆积更快
 
       // 手动绘制全部圆形物体
-      const renderLoop = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const bodies = Composite.allBodies(world);
-        for (let body of bodies) {
-          const { position, circleRadius } = body as any;
-          if (circleRadius) {
-            ctx.fillStyle = (body as any).color || "#000";
-            ctx.beginPath();
-            ctx.arc(position.x, position.y, circleRadius, 0, Math.PI * 2);
-            ctx.fill();
-          } else {
-            // 我们也可以画静态短矩形（作为参考/隐藏它们会更自然）
-            // const verts = (body as any).vertices;
-            // ctx.fillStyle = "rgba(0,0,0,0.0)";
-            // ctx.beginPath();
-            // ctx.moveTo(verts[0].x, verts[0].y);
-            // for (let v = 1; v < verts.length; v++) ctx.lineTo(verts[v].x, verts[v].y);
-            // ctx.closePath();
-            // ctx.fill();
-          }
-        }
-        requestAnimationFrame(renderLoop);
-      };
-      renderLoop();
+            type RenderBody = Matter.Body & { color?: string };
+      
+            const renderLoop = () => {
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              const bodies = Composite.allBodies(world);
+              for (const body of bodies) {
+                const b = body as unknown as RenderBody;
+                const { position, circleRadius } = b;
+                if (circleRadius) {
+                  ctx.fillStyle = b.color || "#000";
+                  ctx.beginPath();
+                  ctx.arc(position.x, position.y, circleRadius, 0, Math.PI * 2);
+                  ctx.fill();
+                } else {
+                  // non-circular bodies ignored for canvas rendering
+                }
+              }
+              requestAnimationFrame(renderLoop);
+            };
+            renderLoop();
 
       // 停止生成并淡出
       setTimeout(() => {
