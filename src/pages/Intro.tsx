@@ -1,4 +1,3 @@
-// src/pages/Intro.tsx
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Matter from "matter-js";
@@ -103,7 +102,7 @@ export default function Intro({ onFinish }: { onFinish: () => void }) {
             x: dx,
             y: dy,
             scale: 1.5,
-            duration: 1.2,
+            duration: 1,
           },
           "<"
         );
@@ -119,8 +118,8 @@ export default function Intro({ onFinish }: { onFinish: () => void }) {
       // 4. 呼吸感
       tl.call(() => {
         gsap.to(hcicEls, {
-          y: "+=6",
-          duration: 2,
+          y: "+=10",
+          duration: 1,
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
@@ -147,7 +146,7 @@ export default function Intro({ onFinish }: { onFinish: () => void }) {
       engine.gravity.y = 1.2;
 
       // 固定颜色组（纯色）
-      const colors = ["#ff0000", "#ffd600", "#00aaff", "#22c55e"]; // 红、黄、蓝、绿
+      const colors = ["#ff0000", "#ffd600", "#00aaff", "#22c55e","#FF8000"," #800080"]; // 红橙黄绿蓝紫
 
       // 计算 HCIC 整体中心区域（用于加权生成）
       const hcicRects = hcicEls.map((el) => el.getBoundingClientRect());
