@@ -13,7 +13,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
       <div className="max-w-4xl w-full flex flex-col items-center gap-8 p-8">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white tracking-tight drop-shadow-sm">
           🌈 HCIC 动态色彩系统
@@ -61,7 +61,7 @@ export default function Home() {
       </div>
 
       <footer className="mt-10 text-sm text-gray-500 dark:text-gray-400">
-        Made with 💙 by HCTLab
+        Made with 💙 by HCIC
       </footer>
     </div>
   );
