@@ -245,7 +245,7 @@ export default function Intro({ onFinish }: { onFinish: () => void }) {
         clearInterval(spawnInterval);
         // 给一段时间让球稳定堆积
         setTimeout(() => {
-          gsap.to(canvas, { opacity: 0, duration: 1.2, onComplete: onFinish });
+          gsap.to(canvas, { opacity: 0, duration: 1.2, onComplete: Finish });
         }, 2000);
       }, 6000); // 6 秒生成期
     };
