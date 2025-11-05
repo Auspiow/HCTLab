@@ -3,7 +3,7 @@ import gsap from "gsap";
 import Matter from "matter-js";
 
 export default function Intro({ Finish }: { Finish: () => void }) {
-  const fullText = "Human-Computer Interaction    Color";
+  const fullText = "Human-Computer Interaction Color";
   const textRef = useRef<HTMLHeadingElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const [displayText, setDisplayText] = useState<string[]>([]);
