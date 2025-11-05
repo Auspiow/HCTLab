@@ -131,9 +131,6 @@ export default function Intro({ Finish }: { Finish: () => void }) {
     };
 
     // ===== dropBalls：改进版 =====
-    // - 为每个字母在其下半部分创建多个小的静态矩形段（近似字母下边界/底座）
-    // - 生成小球时 60% 概率在 HCIC 中心区域内产生（使中心堆积更多）
-    // - 小球颜色固定（不变色）
     const dropBalls = (hcicEls: HTMLElement[]) => {
       const canvas = canvasRef.current!;
       const ctx = canvas.getContext("2d")!;
@@ -145,7 +142,6 @@ export default function Intro({ Finish }: { Finish: () => void }) {
       const world = engine.world;
       engine.gravity.y = 1.2;
 
-      // 固定颜色组（纯色）
       const colors = ["#ff0000", "#ffd600", "#00aaff", "#22c55e","#FF8000"," #800080"]; // 红橙黄绿蓝紫
 
       // 计算 HCIC 整体中心区域（用于加权生成）
@@ -194,9 +190,9 @@ export default function Intro({ Finish }: { Finish: () => void }) {
       const runner = Runner.create();
       Runner.run(runner, engine);
 
-      // 更倾向在中心区域生成球（60% 概率）
+      // 更倾向在中心区域生成球（70% 概率）
       const spawnX = () => {
-        if (Math.random() < 0.6) {
+        if (Math.random() < 0.7) {
           // 在 HCIC 中心区域范围内
           const min = Math.max(0, centerRegion.left);
           const max = Math.min(window.innerWidth, centerRegion.right);
@@ -251,7 +247,7 @@ export default function Intro({ Finish }: { Finish: () => void }) {
     };
 
     return () => clearInterval(interval);
-  }, [onFinish]);
+  }, [Finish]);
 
   // 渲染
   return (

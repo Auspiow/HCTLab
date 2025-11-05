@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ImageUploader from "../components/ImageUploader";
 import ThemePreview from "../components/ThemePreview";
 import { generateThemeFromImage, type ThemePalette } from "../core/colorUtils";
