@@ -1,19 +1,15 @@
 @import "tailwindcss";
 
+/*自定义动画*/
 @keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .animate-gradientFlow {
-  animation: gradientFlow 6s ease infinite;
+  animation: gradientFlow 4s ease infinite;
+  background-size: 200% 200%;
 }
 
 :root {
@@ -31,15 +27,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -48,9 +35,13 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
+}
+a:hover {
+  color: #535bf2;
 }
 
 button {
@@ -67,11 +58,11 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/*浅色模式*/
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -83,14 +74,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradientFlow {
-  animation: gradientFlow 4s ease infinite;
 }
