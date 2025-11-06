@@ -61,7 +61,7 @@ export default function Intro({ Finish }: { Finish: () => void }) {
       }
     }, revealSpeed);
 
-    // HCIC 聚合动画
+    // HCIC聚合动画
     const showHCIC = () => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       const hcicIndices: number[] = [];
@@ -108,14 +108,14 @@ export default function Intro({ Finish }: { Finish: () => void }) {
         );
       });
 
-      // 3. 全部设为黑色
+      // 全部设为黑色
       tl.call(() => {
         hcicEls.forEach((el) => {
           (el as HTMLElement).style.color = "#111";
         });
       });
 
-      // 4. 呼吸感
+      // 呼吸感
       tl.call(() => {
         gsap.to(hcicEls, {
           y: "+=10",
@@ -126,8 +126,8 @@ export default function Intro({ Finish }: { Finish: () => void }) {
         });
       });
 
-      // 5. 延迟并开始掉球填充，传入 hcicEls（用于生成字母“下边界”）
-      tl.to({}, { duration: 2.5 }).call(() => dropBalls(hcicEls as HTMLElement[]));
+      // 延迟并开始掉球填充
+      tl.to({}, { duration: 1 }).call(() => dropBalls(hcicEls as HTMLElement[]));
     };
 
     // ===== dropBalls：改进版 =====
@@ -281,7 +281,7 @@ export default function Intro({ Finish }: { Finish: () => void }) {
         {displayText.map((ch, i) => (
           <span
             key={i}
-            ref={(el) => (charRefs.current[i] = el)}
+            ref={(el) => void (charRefs.current[i] = el)}
             style={{
               display: "inline-block",
               width: "1ch",
@@ -297,7 +297,6 @@ export default function Intro({ Finish }: { Finish: () => void }) {
         ))}
       </h1>
 
-      {/* 小球填充 Canvas（覆盖在文字上方） */}
       <canvas
         ref={canvasRef}
         style={{
