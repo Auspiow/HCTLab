@@ -17,17 +17,19 @@ export default function ThemePreview({ palette, mode }: ThemePreviewProps) {
 
   return (
     <div
-      className="rounded-2xl shadow-lg p-8 transition-colors duration-500 border border-gray-200 dark:border-gray-700"
+      className="rounded-2xl shadow-lg p-8 transition-colors duration-500 
+                 border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto text-center"
       style={{
         backgroundColor: theme.background,
         color: theme.onBackground,
       }}
     >
       <h2 className="text-2xl font-extrabold mb-6 tracking-tight">
-        🎨 主题预览 <span className="text-sm font-medium opacity-70">({mode})</span>
+        🎨 主题预览{" "}
+        <span className="text-sm font-medium opacity-70">({mode})</span>
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center">
         {colorItems.map((item) => (
           <div
             key={item.name}
@@ -46,7 +48,7 @@ export default function ThemePreview({ palette, mode }: ThemePreviewProps) {
         ))}
       </div>
 
-      <div className="mt-6 text-sm opacity-70">
+      <div className="mt-6 text-sm opacity-70 space-y-1">
         <p>
           背景色：<span className="font-mono">{theme.background}</span>
         </p>

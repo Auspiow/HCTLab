@@ -12,7 +12,6 @@ export default function ImageUploader({ onImageLoad }: ImageUploaderProps) {
       alert("请上传图片文件！");
       return;
     }
-
     const img = new Image();
     img.src = URL.createObjectURL(file);
     img.onload = () => onImageLoad(img);
@@ -27,7 +26,6 @@ export default function ImageUploader({ onImageLoad }: ImageUploaderProps) {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
-
     const file = e.dataTransfer.files?.[0];
     if (file) handleFile(file);
   };
@@ -49,7 +47,9 @@ export default function ImageUploader({ onImageLoad }: ImageUploaderProps) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      className={`relative flex flex-col items-center justify-center p-8 border-2 border-dashed rounded-2xl transition-colors cursor-pointer select-none
+      className={`relative flex flex-col items-center justify-center 
+                  p-8 border-2 border-dashed rounded-2xl transition-colors 
+                  cursor-pointer select-none w-full max-w-xl mx-auto text-center
         ${
           isDragging
             ? "border-blue-500 bg-blue-50 dark:bg-gray-800"
@@ -79,12 +79,17 @@ export default function ImageUploader({ onImageLoad }: ImageUploaderProps) {
             strokeWidth={2}
             d="M3 15a4 4 0 014-4h1l1-2a4 4 0 017 0l1 2h1a4 4 0 014 4v2a4 4 0 01-4 4H7a4 4 0 01-4-4v-2z"
           />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11v6m0 0l-2-2m2 2l2-2" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 11v6m0 0l-2-2m2 2l2-2"
+          />
         </svg>
-        <p className="font-medium">
-          点击选择图片或将文件拖拽到此处
+        <p className="font-medium">点击选择图片或将文件拖拽到此处</p>
+        <p className="text-sm text-gray-400 mt-1">
+          支持 JPG、PNG、WEBP 等格式
         </p>
-        <p className="text-sm text-gray-400 mt-1">支持 JPG、PNG、WEBP 等格式</p>
       </div>
 
       {isDragging && (
