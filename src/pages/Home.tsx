@@ -1,5 +1,4 @@
-// src/pages/Home.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import ImageUploader from "../components/ImageUploader";
 import ThemePreview from "../components/ThemePreview";
 import { generateThemeFromImage, type ThemePalette } from "../core/colorUtils";
@@ -14,11 +13,10 @@ export default function Home() {
   };
 
   return (
-    // 强制占满视口宽度并水平居中内容（覆盖父级左右布局）
     <main
       style={{ width: "100vw", minHeight: "100vh" }}
       className="relative flex items-center justify-center
-                 bg-gradient-to-br from-indigo-900/80 via-slate-900/80 to-slate-800/80
+                 bg-linear-to-br from-indigo-900/80 via-slate-900/80 to-slate-800/80
                  dark:from-gray-900 dark:via-gray-900 dark:to-gray-900
                  transition-colors duration-700 px-6 py-12"
     >
